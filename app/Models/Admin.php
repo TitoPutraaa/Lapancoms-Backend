@@ -18,14 +18,32 @@ class Admin extends User
         'password',
         'role'
     ];
-    public static function getAdmin($usn) {
+    public static function showAllAdmin() {
         return DB::table('admin')
-        ->where('username', $usn)
+        ->where('role', 'admin')
         ->where('status', '1')
         ->get([
             'idAdmin',
             'username',
             'password'
+        ]);
+    }
+    public static function getAdminById($id)  {
+        return DB::table('admin')
+        ->where('idAdmin', $id)
+        ->where('status', '1')
+        ->get([
+            'idAdmin',
+            'username',
+            'password'
+        ]);
+    }
+    public static function addAdmin($data){
+        DB::table('admin')
+        ->insert([
+            'username'=>$data['username'],
+            'password'=>$data['password'],
+            'role'=>'admin'
         ]);
     }
 }

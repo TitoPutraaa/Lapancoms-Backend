@@ -28,7 +28,6 @@ class AuthController extends Controller
         }
         $abilities = ['access'];
         if ($admin->role === 'super-admin') {
-            // Super Admin gets access to both gallery and blog
             $abilities = ['super-access'];
         }
         $token = $admin->createToken('access-token', $abilities)->plainTextToken;
