@@ -30,4 +30,8 @@ class adminController extends Controller
         Admin::addAdmin($admin);
         return new defaultResource(true, 'data berhasil ditambahkan', $admin);
     }
+    public function destroy($id) {
+        Admin::deleteAdmin($id);
+        return new defaultResource(true, 'Admin Berhasil dihapus', null);
+    }
 }

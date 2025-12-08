@@ -12,6 +12,7 @@ class Admin extends User
     use HasApiTokens;
     protected $table = 'admin';
     protected $primaryKey = 'idAdmin';
+    protected $hidden = ['password'];
     protected $fillable=[
         'idAdmin',
         'username',
@@ -45,5 +46,10 @@ class Admin extends User
             'password'=>$data['password'],
             'role'=>'admin'
         ]);
+    }
+    public static function deleteAdmin($id) {
+        DB::table('admin')
+        ->where('idAdmin', $id)
+        ->update(['status'=>'0']);
     }
 }
