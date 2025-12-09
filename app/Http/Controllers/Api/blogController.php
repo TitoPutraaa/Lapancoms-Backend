@@ -27,8 +27,27 @@ class blogController extends Controller
         }
     }
     public function show($id) {
-        $data=MainBlog::getBlogById($id);
-        return new defaultResource(true, 'Data detail blog', $data);
+        $kd=MainBlog::getKdBlog($id);
+        switch ($kd->kdTemplate) {
+            case '1':
+                $data=Template1::getBlog($id);
+                break;
+            case '2':
+                $data=Template2::getBlog($id);
+                break;
+            case '3':
+                $data=Template3::getBlog($id);
+                break;
+            case '4':
+                $data=Template4::getBlog($id);
+                break;
+            case '5':
+                $data=Template5::getBlog($id);
+                break;
+            default:
+                break;
+            }
+        return new defaultResource(true, 'data blog', $data);
     }
     public function store(Request $request) {
         $template=$request->kdTemplate;
@@ -42,75 +61,60 @@ class blogController extends Controller
                 $img1=$fimg1->hashname();
                 $fimg1->storeAs('tmp1', $img1, 'public');
 
-                $data1=[
+                $data=[
                     'idAdmin'=>$idAdmin,
                     'judul'=>$request->judul,
                     'tglBlog'=>$time,
                     'kdTemplate'=>$request->kdTemplate,
-                    'tamnel'=>$img1
-                ];
-                $idBlog=MainBlog::addBlog($data1);
-
-                $data2=[
-                    'idBlog'=>$idBlog,
+                    'tamnel'=>$img1,
                     'img1'=>$img1,
                     'text1'=>$request->text1
                 ];
-                Template1::addBlog($data2);
+                Template1::addBlog($data);
                 break;
             case '2':
                 
                 $fimg1=$request->file('img1');
                 $img1=$fimg1->hashname();
-                $fimg1->store('tmp2', $img1);
+                $fimg1->storeAs('tmp2', $img1, 'public');
 
                 $fimg2=$request->file('img2');
                 $img2=$fimg2->hashname();
-                $fimg2->store('tmp2', $img2);
+                $fimg2->storeAs('tmp2', $img2, 'public');
 
-                $data1=[
+                $data=[
                     'idAdmin'=>$idAdmin,
                     'judul'=>$request->judul,
                     'tglBlog'=>$time,
                     'kdTemplate'=>$request->kdTemplate,
-                    'tamnel'=>$img1
-                ];
-                $idBlog=MainBlog::addBlog($data1);
-
-                $data2=[
-                    'idBlog'=>$idBlog,
+                    'tamnel'=>$img1,
                     'img1'=>$img1,
                     'img2'=>$img2,
                     'text1'=>$request->text1,
                     'text2'=>$request->text2
                 ];
-                Template2::addBlog($data2);
+                Template2::addBlog($data);
                 break;
             case '3':
                 
                 $fimg1=$request->file('img1');
                 $img1=$fimg1->hashname();
-                $fimg1->store('tmp3', $img1);
+                $fimg1->storeAs('tmp3', $img1, 'public');
 
                 $fimg2=$request->file('img2');
                 $img2=$fimg2->hashname();
-                $fimg2->store('tmp3', $img2);
+                $fimg2->storeAs('tmp3', $img2, 'public');
 
                 $fimg3=$request->file('img3');
                 $img3=$fimg3->hashname();
-                $fimg3->store('tmp3', $img3);
+                $fimg3->storeAs('tmp3', $img3, 'public');
 
-                $data1=[
+                $data=[
                     'idAdmin'=>$idAdmin,
                     'judul'=>$request->judul,
                     'tglBlog'=>$time,
                     'kdTemplate'=>$request->kdTemplate,
-                    'tamnel'=>$img1
-                ];
-                $idBlog=MainBlog::addBlog($data1);
-
-                $data2=[
-                    'idBlog'=>$idBlog,
+                    'tamnel'=>$img1,
                     'img1'=>$img1,
                     'img2'=>$img2,
                     'img3'=>$img3,
@@ -119,33 +123,28 @@ class blogController extends Controller
                     'text3'=>$request->text3,
                     'text4'=>$request->text4
                 ];
-                Template3::addBlog($data2);
+                Template3::addBlog($data);
                 break;
             case '4':
                 
                 $fimg1=$request->file('img1');
                 $img1=$fimg1->hashname();
-                $fimg1->store('tmp4', $img1);
+                $fimg1->storeAs('tmp4', $img1, 'public');
 
                 $fimg2=$request->file('img2');
                 $img2=$fimg2->hashname();
-                $fimg2->store('tmp4', $img2);
+                $fimg2->storeAs('tmp4', $img2, 'public');
 
                 $fimg3=$request->file('img3');
                 $img3=$fimg3->hashname();
-                $fimg3->store('tmp4', $img3);
+                $fimg3->storeAs('tmp4', $img3, 'public');
 
-                $data1=[
+                $data=[
                     'idAdmin'=>$idAdmin,
                     'judul'=>$request->judul,
                     'tglBlog'=>$time,
                     'kdTemplate'=>$request->kdTemplate,
-                    'tamnel'=>$img1
-                ];
-                $idBlog=MainBlog::addBlog($data1);
-
-                $data2=[
-                    'idBlog'=>$idBlog,
+                    'tamnel'=>$img1,
                     'img1'=>$img1,
                     'img2'=>$img2,
                     'img3'=>$img3,
@@ -154,35 +153,30 @@ class blogController extends Controller
                     'text3'=>$request->text3,
                     'text4'=>$request->text4
                 ];
-                Template4::addBlog($data2);
+                Template4::addBlog($data);
                 break;
             case '5':
                 
                 $fimg1=$request->file('img1');
                 $img1=$fimg1->hashname();
-                $fimg1->store('tmp5', $img1);
+                $fimg1->storeAs('tmp5', $img1, 'public');
 
                 $fimg2=$request->file('img2');
                 $img2=$fimg2->hashname();
-                $fimg2->store('tmp5', $img2);
+                $fimg2->storeAs('tmp5', $img2, 'public');
 
-                $data1=[
+                $data=[
                     'idAdmin'=>$idAdmin,
                     'judul'=>$request->judul,
                     'tglBlog'=>$time,
                     'kdTemplate'=>$request->kdTemplate,
-                    'tamnel'=>$img1
-                ];
-                $idBlog=MainBlog::addBlog($data1);
-
-                $data2=[
-                    'idBlog'=>$idBlog,
+                    'tamnel'=>$img1,
                     'img1'=>$img1,
                     'img2'=>$img2,
                     'text1'=>$request->text1,
                     'text2'=>$request->text2
                 ];
-                Template5::addBlog($data2);
+                Template5::addBlog($data);
                 break;
             default:
                 break;

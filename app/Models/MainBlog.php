@@ -79,6 +79,12 @@ class MainBlog extends Model
         ->where('visible', '1')
         ->get();
     }
+    public static function getKdBlog($id) {
+        return DB::table('mainblog')
+        ->where('idBlog', $id)
+        ->get('kdTemplate')
+        ->first();
+    }
     public static function addMainBlog($data) {
         $id=DB::table('mainblog')
         ->insertGetId([
