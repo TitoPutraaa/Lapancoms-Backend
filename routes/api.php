@@ -5,13 +5,15 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\api\blogController;
 use App\Http\Controllers\api\galleryController;
 use App\Http\Controllers\api\LpController;
+use App\Http\Controllers\api\publicBlogController;
+use App\Http\Controllers\api\publicGalleryController;
+use App\Http\Controllers\api\publicLpController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
-// Route::get('/user', function (Request $request) {
-//     return $request->user();
-// });
-
+Route::get('/publiclp', [publicLpController::class, 'index']);
+Route::apiResource('/publicblog', publicBlogController::class);
+Route::apiResource('/publicgallery', publicGalleryController::class);
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);

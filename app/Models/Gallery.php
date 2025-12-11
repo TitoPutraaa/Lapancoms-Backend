@@ -19,6 +19,7 @@ class Gallery extends Model
         return DB::table('galery')
         ->join('admin', 'galery.idAdmin', '=', 'admin.idAdmin')
         ->where('visible', '1')
+        ->orderBy('idGambar', 'desc')
         ->get([
             'idGambar',
             'galery.idAdmin',
