@@ -22,8 +22,8 @@ class AuthController extends Controller
         if (! $admin) {
             return response()->json(['message' => 'Invalid login'], 401);
         }     
-        // if (! Hash::check($request->password, $admin->password)) {
-        if ($admin->password !== $request->password) {
+        if (! Hash::check($request->password, $admin->password)) {
+        // if ($admin->password !== $request->password) {
              return response()->json(['message' => 'Invalid login'], 401);
         }
         $abilities = ['access'];

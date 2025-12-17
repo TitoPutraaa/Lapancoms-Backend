@@ -15,6 +15,7 @@ Route::get('/publiclp', [publicLpController::class, 'index']);
 Route::apiResource('/publicblog', publicBlogController::class);
 Route::apiResource('/publicgallery', publicGalleryController::class);
 Route::post('/login', [AuthController::class, 'login']);
+
 Route::middleware('auth:sanctum')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout']);
     Route::apiResource('/gallery', galleryController::class);
@@ -23,7 +24,7 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::apiResource('/admin', adminController::class);
         Route::get('/landingpage', [lpController::class, 'index']);
         Route::post('/landingpage/s1h1', [lpController::class, 'up_s1h1']);
-        Route::post('/landingpage/s1p2', [lpController::class, 'up_s1p1']);
+        Route::post('/landingpage/s1p1', [lpController::class, 'up_s1p1']);
         Route::post('/landingpage/s2h1', [lpController::class, 'up_s2h1']);
         Route::post('/landingpage/s2p1', [lpController::class, 'up_s2p1']);
         Route::post('/landingpage/s3h1', [lpController::class, 'up_s3h1']);

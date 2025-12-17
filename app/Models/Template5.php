@@ -9,7 +9,7 @@ class Template5 extends Model
 {
     public static function getBlog($id) {
         return DB::table('mainblog')
-        ->join('template2', 'mainblog.idBlog', '=', 'template2.idBlog')
+        ->join('template5', 'mainblog.idBlog', '=', 'template5.idBlog')
         ->join('admin', 'mainblog.idAdmin', '=', 'admin.idAdmin')
         ->where('mainblog.idBlog', $id)
         ->where('visible', '1')
@@ -18,6 +18,7 @@ class Template5 extends Model
             'mainblog.idAdmin',
             'username',
             'judul',
+            'kdTemplate',
             'tglBlog',
             'tamnel',
             'img1',

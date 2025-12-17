@@ -18,6 +18,7 @@ class Template3 extends Model
             'mainblog.idAdmin',
             'username',
             'judul',
+            'kdTemplate',
             'tglBlog',
             'tamnel',
             'img1',
@@ -26,7 +27,6 @@ class Template3 extends Model
             'text1',
             'text2',
             'text3',
-            'text4',
         ]);
     }
     public static function addBlog($data) {
@@ -47,7 +47,6 @@ class Template3 extends Model
             'text1'=>$data['text1'],
             'text2'=>$data['text2'],
             'text3'=>$data['text3'],
-            'text4'=>$data['text4']
         ]);
     }
 }

@@ -59,7 +59,7 @@ class blogController extends Controller
                 
                 $fimg1=$request->file('img1');
                 $img1=$fimg1->hashname();
-                $fimg1->storeAs('tmp1', $img1, 'public');
+                $fimg1->storeAs('template', $img1, 'public');
 
                 $data=[
                     'idAdmin'=>$idAdmin,
@@ -76,11 +76,11 @@ class blogController extends Controller
                 
                 $fimg1=$request->file('img1');
                 $img1=$fimg1->hashname();
-                $fimg1->storeAs('tmp2', $img1, 'public');
+                $fimg1->storeAs('template', $img1, 'public');
 
                 $fimg2=$request->file('img2');
                 $img2=$fimg2->hashname();
-                $fimg2->storeAs('tmp2', $img2, 'public');
+                $fimg2->storeAs('template', $img2, 'public');
 
                 $data=[
                     'idAdmin'=>$idAdmin,
@@ -99,15 +99,15 @@ class blogController extends Controller
                 
                 $fimg1=$request->file('img1');
                 $img1=$fimg1->hashname();
-                $fimg1->storeAs('tmp3', $img1, 'public');
+                $fimg1->storeAs('template', $img1, 'public');
 
                 $fimg2=$request->file('img2');
                 $img2=$fimg2->hashname();
-                $fimg2->storeAs('tmp3', $img2, 'public');
+                $fimg2->storeAs('template', $img2, 'public');
 
                 $fimg3=$request->file('img3');
                 $img3=$fimg3->hashname();
-                $fimg3->storeAs('tmp3', $img3, 'public');
+                $fimg3->storeAs('template', $img3, 'public');
 
                 $data=[
                     'idAdmin'=>$idAdmin,
@@ -129,15 +129,19 @@ class blogController extends Controller
                 
                 $fimg1=$request->file('img1');
                 $img1=$fimg1->hashname();
-                $fimg1->storeAs('tmp4', $img1, 'public');
+                $fimg1->storeAs('template', $img1, 'public');
 
                 $fimg2=$request->file('img2');
                 $img2=$fimg2->hashname();
-                $fimg2->storeAs('tmp4', $img2, 'public');
+                $fimg2->storeAs('template', $img2, 'public');
 
                 $fimg3=$request->file('img3');
                 $img3=$fimg3->hashname();
-                $fimg3->storeAs('tmp4', $img3, 'public');
+                $fimg3->storeAs('template', $img3, 'public');
+
+                $fimg4=$request->file('img4');
+                $img4=$fimg4->hashname();
+                $fimg4->storeAs('template', $img4, 'public');
 
                 $data=[
                     'idAdmin'=>$idAdmin,
@@ -148,6 +152,7 @@ class blogController extends Controller
                     'img1'=>$img1,
                     'img2'=>$img2,
                     'img3'=>$img3,
+                    'img4'=>$img4,
                     'text1'=>$request->text1,
                     'text2'=>$request->text2,
                     'text3'=>$request->text3,
@@ -159,11 +164,11 @@ class blogController extends Controller
                 
                 $fimg1=$request->file('img1');
                 $img1=$fimg1->hashname();
-                $fimg1->storeAs('tmp5', $img1, 'public');
+                $fimg1->storeAs('template', $img1, 'public');
 
                 $fimg2=$request->file('img2');
                 $img2=$fimg2->hashname();
-                $fimg2->storeAs('tmp5', $img2, 'public');
+                $fimg2->storeAs('template', $img2, 'public');
 
                 $data=[
                     'idAdmin'=>$idAdmin,
