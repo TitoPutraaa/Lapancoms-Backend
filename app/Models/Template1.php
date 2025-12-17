@@ -18,6 +18,7 @@ class Template1 extends Model
             'mainblog.idAdmin',
             'username',
             'judul',
+            'kdTemplate',
             'tglBlog',
             'tamnel',
             'img1',

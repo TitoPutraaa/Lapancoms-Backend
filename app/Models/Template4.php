@@ -18,15 +18,16 @@ class Template4 extends Model
             'mainblog.idAdmin',
             'username',
             'judul',
+            'kdTemplate',
             'tglBlog',
             'tamnel',
             'img1',
             'img2',
             'img3',
+            'img4',
             'text1',
             'text2',
             'text3',
-            'text4',
         ]);
     }
     public static function addBlog($data) {
@@ -44,10 +45,10 @@ class Template4 extends Model
             'img1'=>$data['img1'],
             'img2'=>$data['img2'],
             'img3'=>$data['img3'],
+            'img4'=>$data['img4'],
             'text1'=>$data['text1'],
             'text2'=>$data['text2'],
             'text3'=>$data['text3'],
-            'text4'=>$data['text4']
         ]);
     }
 }
