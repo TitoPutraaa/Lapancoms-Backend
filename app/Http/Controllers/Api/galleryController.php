@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\defaultResource;
+use App\Models\Admin;
 use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -36,12 +37,10 @@ class galleryController extends Controller
             'namaGambar'=>$nmFile->hashName(),
         ];
         Gallery::addGambar($data);
+        Admin::plusGallery($admin->idAdmin);
         return new defaultResource(true, 'Data berhasil dimasukan', $data);
     }
     public function destroy($id) {
-        // $gambar=Gallery::getFileGambar($id);
-        // $nmfile=$gambar->namaGambar;
-        // Storage::disk('public')->delete('galery/'.$nmfile);
         Gallery::deleteGambar($id);
         return new defaultResource(true, 'gambar berhasil dihapus', null);
     }

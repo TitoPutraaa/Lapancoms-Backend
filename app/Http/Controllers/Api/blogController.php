@@ -4,6 +4,7 @@ namespace App\Http\Controllers\api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\defaultResource;
+use App\Models\Admin;
 use App\Models\MainBlog;
 use App\Models\Template1;
 use App\Models\Template2;
@@ -186,6 +187,7 @@ class blogController extends Controller
             default:
                 break;
         }
+        Admin::plusBlog($idAdmin);
         return new defaultResource(true, 'blog berhasil di post', $data1);
     }
     public function destroy($id) {

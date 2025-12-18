@@ -100,5 +100,10 @@ class MainBlog extends Model
         DB::table('mainblog')
         ->where('idBlog', $id)
         ->update(['visible'=>'0']);
+
+        DB::table('mainblog')
+        ->join('admin', 'mainblog.idAdmin', '=', 'admin.idAdmin')
+        ->where('idBlog', $id)
+        ->decrement('blogPost');
     }
 }

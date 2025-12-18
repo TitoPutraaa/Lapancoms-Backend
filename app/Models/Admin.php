@@ -26,7 +26,9 @@ class Admin extends User
         ->get([
             'idAdmin',
             'username',
-            'password'
+            'password',
+            'blogPost',
+            'galleryPost'
         ]);
     }
     public static function getAdminById($id)  {
@@ -36,7 +38,9 @@ class Admin extends User
         ->get([
             'idAdmin',
             'username',
-            'password'
+            'password',
+            'blogPost',
+            'galleryPost'
         ]);
     }
     public static function addAdmin($data){
@@ -51,5 +55,15 @@ class Admin extends User
         DB::table('admin')
         ->where('idAdmin', $id)
         ->update(['status'=>'0']);
+    }
+    public static function plusBlog($id) {
+        DB::table('admin')
+        ->where('idAdmin', $id)
+        ->increment('blogPost');
+    }
+    public static function plusGallery($id) {
+        DB::table('admin')
+        ->where('idAdmin', $id)
+        ->increment('galleryPost');
     }
 }

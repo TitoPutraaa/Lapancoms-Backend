@@ -72,5 +72,10 @@ class Gallery extends Model
         DB::table('galery')
         ->where('idGambar', $id)
         ->update(['visible'=>'0']);
+
+        DB::table('galery')
+        ->join('admin', 'galery.idAdmin', '=', 'admin.idAdmin')
+        ->where('idGambar', $id)
+        ->decrement('galleryPost');
     }
 }
