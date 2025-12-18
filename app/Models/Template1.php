@@ -38,6 +38,7 @@ class Template1 extends Model
         ->insert([
             'idBlog'=>$id,
             'img1'=>$data['img1'],
+            // 'text1'=>json_encode($data['text1']),
             'text1'=>$data['text1'],
         ]);
     }

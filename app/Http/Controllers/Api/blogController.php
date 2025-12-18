@@ -32,18 +32,30 @@ class blogController extends Controller
         switch ($kd->kdTemplate) {
             case '1':
                 $data=Template1::getBlog($id);
+                // return string to object
+                $data[0]->text1 = json_decode($data[0]->text1, true);
                 break;
-            case '2':
-                $data=Template2::getBlog($id);
+                case '2':
+                    $data=Template2::getBlog($id);
+                    $data[0]->text1 = json_decode($data[0]->text1, true);
+                    $data[0]->text2 = json_decode($data[0]->text2, true);
                 break;
             case '3':
                 $data=Template3::getBlog($id);
+                    $data[0]->text1 = json_decode($data[0]->text1, true);
+                    $data[0]->text2 = json_decode($data[0]->text2, true);
+                    $data[0]->text3 = json_decode($data[0]->text3, true);
                 break;
             case '4':
                 $data=Template4::getBlog($id);
+                    $data[0]->text1 = json_decode($data[0]->text1, true);
+                    $data[0]->text2 = json_decode($data[0]->text2, true);
+                    $data[0]->text3 = json_decode($data[0]->text3, true);
                 break;
             case '5':
                 $data=Template5::getBlog($id);
+                    $data[0]->text1 = json_decode($data[0]->text1, true);
+                    $data[0]->text2 = json_decode($data[0]->text2, true);
                 break;
             default:
                 break;
@@ -69,6 +81,7 @@ class blogController extends Controller
                     'kdTemplate'=>$request->kdTemplate,
                     'tamnel'=>$img1,
                     'img1'=>$img1,
+                    // 'text1'=>json_decode($request->text1, true)
                     'text1'=>$request->text1
                 ];
                 Template1::addBlog($data);
