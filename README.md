@@ -1,7 +1,7 @@
 <h1 align="center">🏘️Backend CMS Desa Wisata</h1>
 
 Backend service untuk Content Management System (CMS) Desa Wisata, yang digunakan untuk mengelola konten website seperti blog, galeri, landing page, serta manajemen admin dengan sistem role-based access.
-Project ini dikembangkan sebagai bagian dari Project Akademik Program Studi Teknologi Rekayasa Perangkat Lunak, Semester 3– Politeknik Negeri Bali.
+Project ini dikembangkan sebagai bagian dari Project Akademik Program Studi Teknologi Rekayasa Perangkat Lunak, Semester 3 – Politeknik Negeri Bali.
 
 ## 📌 Deskripsi Singkat
 
@@ -25,7 +25,7 @@ Super Admin → mengelola seluruh konten dan admin
 
 📝 Manajemen Konten
 
--   CRUD Blog (menggunakan beberapa template)
+-   Creat, Read, Delate Blog (menggunakan beberapa template)
 -   Upload & hapus Galeri
 -   Pengaturan visibilitas konten
 
